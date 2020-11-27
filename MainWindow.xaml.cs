@@ -103,7 +103,7 @@ namespace Canvas_Test
 
 			Bitmap bitmap = System.Drawing.Image.FromFile(IMAGEPATH) as Bitmap;
 			Bitmap[] bitmaps = new Bitmap[4];
-			bitmaps[0] = bitmap.Clone(new System.Drawing.Rectangle(0, 0, 1000, 1000), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+			bitmaps[0] = bitmap.Clone(new System.Drawing.Rectangle(0, 0, 10000, 10000), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 			//bitmaps[1] = bitmap.Clone(new System.Drawing.Rectangle(bitmap.Width / 2 , 0, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 			//bitmaps[2] = bitmap.Clone(new System.Drawing.Rectangle(0, bitmap.Height / 2, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 			//bitmaps[3] = bitmap.Clone(new System.Drawing.Rectangle(bitmap.Width / 2 , bitmap.Height / 2, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
@@ -111,7 +111,7 @@ namespace Canvas_Test
 			bitmap.Dispose();
 
 			MemoryStream ms = new MemoryStream();
-			bitmaps[0].Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+			bitmaps[0].Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 			ms.Position = 0;
 			BitmapImage ObjBitmapImage = new BitmapImage();
 			ObjBitmapImage.BeginInit();
