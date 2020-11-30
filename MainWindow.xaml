@@ -9,9 +9,9 @@
         Title="MainWindow" Height="800" Width="1000">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <Canvas Width="3000" Height="3000" x:Name="canvas" Background="AliceBlue">
-                
-            </Canvas>
+            <local:MyCanvas Width="30000" Height="30000" x:Name="canvas" Background="AliceBlue">
+                <Rectangle Canvas.Left="0" Canvas.Top="0" Width="100" Height="100"  />
+            </local:MyCanvas>
         </ScrollViewer>
 
     </Grid>

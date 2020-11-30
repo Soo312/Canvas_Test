@@ -24,7 +24,7 @@ namespace Canvas_Test
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private string IMAGEPATH = "D:\\Test\\ImageTest\\Metal_1_pix3.jpg";
+		public string IMAGEPATH = "D:\\Test\\ImageTest\\Metal_1_pix3.jpg";
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -101,34 +101,37 @@ namespace Canvas_Test
 			//Canvas.SetLeft(bg, 100);
 			//Canvas.SetTop(bg, 100);
 
-			Bitmap bitmap = System.Drawing.Image.FromFile(IMAGEPATH) as Bitmap;
-			Bitmap[] bitmaps = new Bitmap[4];
-			bitmaps[0] = bitmap.Clone(new System.Drawing.Rectangle(0, 0, 10000, 10000), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-			//bitmaps[1] = bitmap.Clone(new System.Drawing.Rectangle(bitmap.Width / 2 , 0, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-			//bitmaps[2] = bitmap.Clone(new System.Drawing.Rectangle(0, bitmap.Height / 2, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-			//bitmaps[3] = bitmap.Clone(new System.Drawing.Rectangle(bitmap.Width / 2 , bitmap.Height / 2, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+			//Bitmap bitmap = System.Drawing.Image.FromFile(IMAGEPATH) as Bitmap;
+			//Bitmap[] bitmaps = new Bitmap[4];
+			//bitmaps[0] = bitmap.Clone(new System.Drawing.Rectangle(0, 0, 10000, 10000), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+			////bitmaps[1] = bitmap.Clone(new System.Drawing.Rectangle(bitmap.Width / 2 , 0, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+			////bitmaps[2] = bitmap.Clone(new System.Drawing.Rectangle(0, bitmap.Height / 2, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+			////bitmaps[3] = bitmap.Clone(new System.Drawing.Rectangle(bitmap.Width / 2 , bitmap.Height / 2, bitmap.Width / 2, bitmap.Height / 2), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
-			bitmap.Dispose();
+			//bitmap.Dispose();
 
-			MemoryStream ms = new MemoryStream();
-			bitmaps[0].Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-			ms.Position = 0;
-			BitmapImage ObjBitmapImage = new BitmapImage();
-			ObjBitmapImage.BeginInit();
-			ObjBitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-			ObjBitmapImage.StreamSource = ms;
-			ms.Dispose();
-			ObjBitmapImage.EndInit();
-			ObjBitmapImage.Freeze();
+			//MemoryStream ms = new MemoryStream();
+			//bitmaps[0].Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+			//ms.Position = 0;
+			//BitmapImage ObjBitmapImage = new BitmapImage();
+			//ObjBitmapImage.BeginInit();
+			//ObjBitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+			//ObjBitmapImage.StreamSource = ms;
+			//ms.Dispose();
+			//ObjBitmapImage.EndInit();
+			//ObjBitmapImage.Freeze();
 
-			System.Windows.Controls.Image image1 = new System.Windows.Controls.Image();
-			image1.Source = ObjBitmapImage;
+			//System.Windows.Controls.Image image1 = new System.Windows.Controls.Image();
+			//image1.Source = ObjBitmapImage;
 
-			Canvas.SetLeft(image1, 100);
-			Canvas.SetTop(image1, 100);
-			canvas.Children.Add(image1);
+			//Canvas.SetLeft(image1, 100);
+			//Canvas.SetTop(image1, 100);
+			//canvas.Children.Add(image1);
+
+			
+			
 		}
 
-
+	
 	}
 }
