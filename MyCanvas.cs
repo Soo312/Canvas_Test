@@ -18,7 +18,7 @@ namespace Canvas_Test
 		{
 			string IMAGEPATH = "D:\\Test\\ImageTest\\1233.jpg";
 			OpenCvSharp.Mat mat = new OpenCvSharp.Mat(IMAGEPATH);
-			
+
 			int i;
 			int j;
 
@@ -28,8 +28,8 @@ namespace Canvas_Test
 			subwidth = mat.Width / subnum;
 			subheight = mat.Height / subnum;
 			BitmapImage[] biarray = new BitmapImage[subnum * subnum];
-			//try
-			//{
+			try
+			{
 
 				for (i = 0; i < subnum; i++)
 				{
@@ -42,19 +42,18 @@ namespace Canvas_Test
 
 
 
-					OpenCvSharp.Mat submat = mat.SubMat(new OpenCvSharp.Rect((subwidth * j),
-																			 (subheight * i),
-																			 subwidth,
-																			 subheight));
+						OpenCvSharp.Mat submat = mat.SubMat(new OpenCvSharp.Rect((subwidth * j),
+																				 (subheight * i),
+																				 subwidth,
+																				 subheight));
 
-					//OpenCvSharp.Mat submat = mat.SubMat(subheight * i, subheight * i + subheight, subwidth * j, subwidth * j +subwidth); ;
-						//Bitmap bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(submat);
-					using (Bitmap bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(submat))
-					{
+						//OpenCvSharp.Mat submat = mat.SubMat(subheight * i, subheight * i + subheight, subwidth * j, subwidth * j +subwidth); ;
+						Bitmap bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(submat);
+
 
 						using (MemoryStream ms = new MemoryStream())
 						{
-							bitmap.Save(ms, ImageFormat.Png);
+							bitmap.Save(ms, ImageFormat.Jpeg);
 							ms.Position = 0;
 
 							biarray[index].BeginInit();
@@ -62,21 +61,23 @@ namespace Canvas_Test
 							biarray[index].StreamSource = ms;
 							biarray[index].EndInit();
 
-
 						}
 						submat.Dispose();
-					}
-					if (biarray[index] != null)
-							dc.DrawImage(biarray[index], new System.Windows.Rect((mat.Width / 10 + 10) * j, (mat.Height / 10 + 10) * i, mat.Width / 10, mat.Height / 10));
+
+						if (biarray[index] != null)
+						{
+							dc.DrawImage(biarray[index], new System.Windows.Rect((mat.Width / 10 + 10) * j, (mat.Height / 10 + 10) * i, mat.Width / 10, mat.Height / 10)); ;
+						}
 
 					}
 				}
-			//}
-			//catch (Exception ex)
-			//{
-			//	System.Diagnostics.Debug.Print(ex.Message);
-			//}
-			
+				mat.Dispose();
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.Print(ex.ToString());
+			}
+
 
 		}
 	}
